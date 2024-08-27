@@ -7,6 +7,7 @@ class Postulante{
     private String nombre;
     private String apellido;
     private String rut;
+    private boolean esIndigena;
 
     public Postulante(int edad, String nombre, String apellido, String rut){
         this.edad = edad;
