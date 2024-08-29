@@ -9,21 +9,31 @@ public class index{
     private static Scanner sc = new Scanner(System.in);
     private static int opcion;
     private static Postulante postulante1;
-    static HashMap<String, Postulante> MapaPostulantes;
+    static HashMap<String, Postulante> mapaPostulantes;
     public static void main(String[] args){
 
-        MapaPostulantes = new HashMap<>();
+        mapaPostulantes = new HashMap<>();
         menu(sc);
 
     }
 
-    public void crearFicha(Scanner input){
-       //postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9",1, 5.0, true, 70.0, false, 600, "no", false);
+    public static void crearFicha(){
+        postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9", 1, 5.0f, true, 70.0f, false, 600, "no", false);
+        if(mapaPostulantes.containsKey(postulante1.getRut())){
+            System.out.println("Este RUT ya está registrado");
+        }
+        else{
+            mapaPostulantes.put(postulante1.getRut(), postulante1);
+            System.out.println("Te has registrado correctamente.");
+        }
+        mapaPostulantes.put(postulante1.getRut(), postulante1);
+        System.out.println();
         //METER POSTULANTE AL MAPA Y EVALUAR
     }
 
     public static void menu(Scanner sc){
         do{
+            clearScreen();
             System.out.println("Bienvenido al Sistema de Gestión de Becas");
             System.out.println("¿Qué desea hacer?");
 
@@ -58,7 +68,8 @@ public class index{
 
                     break;
                 case 4:
-                //Método crearFicha(input)
+                    clearScreen();
+                    crearFicha();
                     break;
                 case 5:
                     System.out.println("Ha elegido la opción 5");
@@ -72,7 +83,7 @@ public class index{
                     System.exit(1);
                 break;
             }
-
+            presioneTeclaParaContinuar(sc);
         }while(opcion != 5);
     }
 
@@ -126,4 +137,8 @@ public class index{
         }
     }
     
+    public static void presioneTeclaParaContinuar(Scanner input){
+        System.out.println("\nPresione una tecla para continuar...");
+        input.nextLine();
+    }
 }  

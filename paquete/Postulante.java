@@ -3,7 +3,7 @@ package paquete;
 //import java.util.ArrayList;
 //import java.util.HashMap;
 
-public class Postulante{
+public class Postulante {
     private String nombre;
     private String apellido;
     private int edad;
@@ -17,7 +17,7 @@ public class Postulante{
     private String carreraEnCurso;
     private boolean titulado;
 
-    public Postulante(String nombre, String apellido, int edad, String rut, int sexo, float notasMedia, boolean nacionalidadChilena, float rangoSE, boolean esIndigena, int puntajePaes, String carreraEnCurso, boolean titulado){
+    public Postulante(String nombre, String apellido, int edad, String rut, int sexo, float notasMedia, boolean nacionalidadChilena, float rangoSE, boolean esIndigena, int puntajePaes, String carreraEnCurso, boolean titulado) {
         this.edad = edad;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -31,6 +31,7 @@ public class Postulante{
         this.carreraEnCurso = carreraEnCurso;
         this.titulado = titulado;
     }
+
     
     public void setEdad(int edad){
         this.edad = edad;
