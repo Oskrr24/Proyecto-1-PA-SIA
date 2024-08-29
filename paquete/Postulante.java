@@ -1,8 +1,9 @@
+package paquete;
 //import java.util.Scanner;
 //import java.util.ArrayList;
 //import java.util.HashMap;
 
-class Postulante{
+public class Postulante{
     private String nombre;
     private String apellido;
     private int edad;

@@ -1,7 +1,7 @@
-//import java.util.*;
+package paquete;
+//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-//import java.util.ArrayList;
 import java.io.*;
 
 public class index{
@@ -15,6 +15,11 @@ public class index{
         MapaPostulantes = new HashMap<>();
         menu(sc);
 
+    }
+
+    public void crearFicha(Scanner input){
+       //postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9",1, 5.0, true, 70.0, false, 600, "no", false);
+        //METER POSTULANTE AL MAPA Y EVALUAR
     }
 
     public static void menu(Scanner sc){
@@ -121,8 +126,4 @@ public class index{
         }
     }
     
-    public void crearFicha(Scanner input){
-        postulante1 = new Postulante("Juan", "Perez", 19, "21672971-5", 1, 5.0, true, 70.0, false, 600, "ninguna", false);
-        //METER POSTULANTE AL MAPA Y EVALUAR
-    }
 }  
