@@ -9,26 +9,13 @@ public class index{
     private static Scanner sc = new Scanner(System.in);
     private static int opcion;
     private static Postulante postulante1;
+    private static Beca becas;
     static HashMap<String, Postulante> mapaPostulantes;
     public static void main(String[] args){
 
         mapaPostulantes = new HashMap<>();
         menu(sc);
 
-    }
-
-    public static void crearFicha(){
-        postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9", 1, 5.0f, true, 70.0f, false, 600, "no", false);
-        if(mapaPostulantes.containsKey(postulante1.getRut())){
-            System.out.println("Este RUT ya está registrado");
-        }
-        else{
-            mapaPostulantes.put(postulante1.getRut(), postulante1);
-            System.out.println("Te has registrado correctamente.");
-        }
-        mapaPostulantes.put(postulante1.getRut(), postulante1);
-        System.out.println();
-        //METER POSTULANTE AL MAPA Y EVALUAR
     }
 
     public static void menu(Scanner sc){
@@ -59,7 +46,7 @@ public class index{
             
                 case 2:
                    System.out.println("Ha elegido la opción 2");
-                    //Método realizarPostulacion(input)
+                    realizarPostulacion();
                     break;
 
                 case 3:
@@ -126,6 +113,26 @@ public class index{
         */
     }
     
+    public static void crearFicha(){
+        postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9", 1, 5.0f, true, 70.0f, false, 600, "no", false);
+
+        if(mapaPostulantes.containsKey(postulante1.getRut())){
+            System.out.println("Este RUT ya está registrado");
+        }
+        else{
+            mapaPostulantes.put(postulante1.getRut(), postulante1);
+            System.out.println("Te has registrado correctamente.");
+            //CREAR ARRAYLIST
+        }
+        mapaPostulantes.put(postulante1.getRut(), postulante1);
+        System.out.println();
+    }
+
+    public static void realizarPostulacion(){
+
+
+    }
+
     public static void imprimirDesdeArchivo(String archivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;

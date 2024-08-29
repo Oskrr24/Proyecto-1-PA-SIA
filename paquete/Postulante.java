@@ -1,7 +1,4 @@
 package paquete;
-//import java.util.Scanner;
-//import java.util.ArrayList;
-//import java.util.HashMap;
 
 public class Postulante {
     private String nombre;
@@ -31,7 +28,6 @@ public class Postulante {
         this.carreraEnCurso = carreraEnCurso;
         this.titulado = titulado;
     }
-
     
     public void setEdad(int edad){
         this.edad = edad;
