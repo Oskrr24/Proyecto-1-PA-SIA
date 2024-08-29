@@ -1,4 +1,5 @@
 package paquete;
+import java.util.ArrayList;
 
 public class Postulante {
     private String nombre;
@@ -14,6 +15,8 @@ public class Postulante {
     private String carreraEnCurso;
     private boolean titulado;
 
+    private ArrayList<Becas> becas;
+
     public Postulante(String nombre, String apellido, int edad, String rut, int sexo, float notasMedia, boolean nacionalidadChilena, float rangoSE, boolean esIndigena, int puntajePaes, String carreraEnCurso, boolean titulado) {
         this.edad = edad;
         this.nombre = nombre;
@@ -27,6 +30,7 @@ public class Postulante {
         this.puntajePaes = puntajePaes;
         this.carreraEnCurso = carreraEnCurso;
         this.titulado = titulado;
+        this.becas = new ArrayList<>();
     }
     
     public void setEdad(int edad){
@@ -117,12 +121,21 @@ public class Postulante {
         this.carreraEnCurso = carreraEnCurso;
     }
 
-    public boolean isTitulado() {
+    public boolean getTitulado() {
         return titulado;
     }
 
     public void setTitulado(boolean titulado) {
         this.titulado = titulado;
     }
+
+    public ArrayList<Becas> getBecas(){
+        return becas;
+    }
+
+    public void agregarBeca(Becas beca){
+        becas.add(beca);
+    }
+
 }
 
