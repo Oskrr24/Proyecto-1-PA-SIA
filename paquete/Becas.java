@@ -21,6 +21,13 @@ public class Becas{
         else
         return false;
     }
+//Esta se utilizo sobre carga de metodos, simplemente cambie los valores de entrada, esta es para los extranjedor por si acaso
+    public boolean BECA_JuanGomezMillas(float rangoSE, boolean nacionalidadChilena ){
+        if(rangoSE >= 0.7 && nacionalidadChilena == false)
+        return true;
+        else
+        return false;
+    }
 
     public boolean BECA_Profesor_licenciado_profesional(String carrera, boolean terminada){
         if(carrera.equals("Pedagogia") && terminada == true)
