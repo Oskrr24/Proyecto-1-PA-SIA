@@ -2,10 +2,10 @@ package paquete;
 
 public class Becas{
 
-    boolean becaBicentenario = false;
-    boolean becaJGM = false;
-    boolean becaVLP = false;
-    boolean becaEA = false;
+    private boolean becaBicentenario = false;
+    private boolean becaJGM = false;
+    private boolean becaVLP = false;
+    private boolean becaEA = false;
     
     //HACER VARIABLE QUE SE LLAME MOSTRARBECA-NOMBRE = TRUE/FALSE
     public boolean BECA_Bicentenario(float rangoSE, int PtsPAES){
