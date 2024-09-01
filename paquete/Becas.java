@@ -7,6 +7,9 @@ public class Becas{
     private boolean becaVLP = false;
     private boolean becaEA = false;
     
+    //CREAR MÁS ATRIBUTOS PARA CREAR UN OBJETO BECA
+    //CREAR UN CONSTRUCTOR PARA CADA BECA
+   
     //HACER VARIABLE QUE SE LLAME MOSTRARBECA-NOMBRE = TRUE/FALSE
     public boolean BECA_Bicentenario(float rangoSE, int PtsPAES){
         if(rangoSE >= 0.7 && PtsPAES >= 510)
