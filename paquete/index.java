@@ -16,7 +16,7 @@ public class index{
         menu(sc);
 
     }
-
+//kajsndkjasd
     public static void crearFicha(){
         postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9", 1, 5.0f, true, 70.0f, false, 600, "no", false);
 
