@@ -3,9 +3,6 @@ package paquete;
 public class Becas{
 
     private String nombreBeca;
-
-    //Se podria hacer un constructor con todas las becas....
-
     public Becas(String nombreBeca){
         this.nombreBeca = nombreBeca;
     }

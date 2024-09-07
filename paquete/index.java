@@ -6,7 +6,6 @@ import java.io.*;
 
 /*POR HACER:
  Modificar el método agregar beca para que no se agreguen repetidos
- 
 */
 
 public class index{
@@ -14,7 +13,7 @@ public class index{
     private static Scanner sc = new Scanner(System.in);
     private static int opcion;
     private static Postulante postulante1;
-    //private static Postulante postulante2;
+    private static Postulante postulante2;
     private static HashMap<String, Postulante> mapaPostulantes;
     public static void main(String[] args){
 
@@ -25,14 +24,14 @@ public class index{
 
     public static void crearFicha(){
         postulante1 = new Postulante("Juan", "Perez", 19, "21884729-9", 1, 5.0f, true, 70.0f, false, 600, "no", false);
-        //postulante2 = new Postulante("Daniela", "Vega", 18, "21914929-K", 2, 6.5f, true, 70.0f, false, 850, "no", false);
+        postulante2 = new Postulante("Daniela", "Vega", 18, "21914929-K", 2, 6.5f, true, 70.0f, false, 850, "no", false);
     
-        if(mapaPostulantes.containsKey(postulante1.getRut()) /*|| mapaPostulantes.containsKey(postulante2.getRut())*/){
+        if(mapaPostulantes.containsKey(postulante1.getRut()) || mapaPostulantes.containsKey(postulante2.getRut())){
             System.out.println("Este RUT ya está registrado");
         }
         else{
             mapaPostulantes.put(postulante1.getRut(), postulante1);
-            //mapaPostulantes.put(postulante2.getRut(), postulante2);
+            mapaPostulantes.put(postulante2.getRut(), postulante2);
     
             System.out.println("Te has registrado correctamente.");
         }
@@ -48,7 +47,7 @@ public class index{
             Postulante postulante = mapaPostulantes.get(rut);
     
             System.out.println("Becas disponibles: ");
-            imprimirDesdeArchivo("BecasDisponibles.txt");
+            imprimirDesdeArchivo("src/main/resources/BecasDisponibles.txt");
     
             System.out.println("Ingrese índice para postular a la beca: ");
             int opcion = ingresarNumeroValido(sc, 1, 4);
@@ -122,14 +121,14 @@ public class index{
             System.out.println("VERSIÓN DEL POSTULANTE");
             System.out.println("1) Consultar Becas disponibles");
             System.out.println("2) Consultar Becas Postuladas");
-            System.out.println("3) Realizar postulación"); //LA BECA SE AGREGA AL ARRAY DE LA TABLA, PERO QUEDA COMO EN FALSE HASTA QUE SE APRUEBE
-            System.out.println("4) Consultar estado de Beca(s)");// UNICA Q NO FUNCIONA
-            System.out.println("5) Realizar Ficha/Registrarse"); //AGREGAR A LA TABLA HASH
+            System.out.println("3) Realizar postulación"); 
+            System.out.println("4) Consultar estado de Beca(s) **NO FUNCIONA**");
+            System.out.println("5) Realizar Ficha/Registrarse"); 
             
             System.out.println("-------------");
 
             System.out.println("VERSION DEL ADMINISTRADOR");
-            System.out.println("6) Gestionar solicitudes"); //FUNCIONA
+            System.out.println("6) Gestionar solicitudes **NO FUNCIONA**"); 
             System.out.println("7) Salir del programa"); 
 
             opcion = ingresarNumeroValido(sc, 1, 7);
@@ -206,12 +205,11 @@ public class index{
         int opcion = ingresarNumeroValido(sc, 1, 2);
 
         if(opcion == 1){
-            imprimirDesdeArchivo("information.txt");
+            imprimirDesdeArchivo("src/main/resources/information.txt");
         }else{
             System.out.print("Ingrese el puntaje mínima a filtrar (100 - 1000): ");
             int puntajePaes = sc.nextInt();
-            imprimirDesdeArchivo("information.txt", puntajePaes);
-            //System.exit(0);
+            imprimirDesdeArchivo("src/main/resources/information.txt", puntajePaes);
         }
         
         /*IBECAS ACTUALES
@@ -229,19 +227,17 @@ public class index{
             boolean agregarBeca = false;
 
             while ((linea = br.readLine()) != null) {
-                // Si encontramos una línea en blanco, es el fin de una beca, evaluamos si la agregamos
+                
                 if (linea.trim().isEmpty()) {
                     if (agregarBeca) {
                         System.out.println(becaActual.toString().trim());
                     }
-                    becaActual.setLength(0);  // Reiniciamos el StringBuilder
-                    agregarBeca = false;  // Reiniciamos el flag
+                    becaActual.setLength(0);  
+                    agregarBeca = false;  
                 } else {
                     becaActual.append(linea).append("\n");
 
-                    // Verificamos si la línea contiene el puntaje PAES
                     if (linea.contains("Puntaje PAES")) {
-                        // Aquí asumimos que la línea contiene algo como "Puntaje PAES 510 puntos"
                         String[] partes = linea.split(" ");
                         for (String parte : partes) {
                             try {
@@ -250,14 +246,13 @@ public class index{
                                     agregarBeca = true;
                                 }
                             } catch (NumberFormatException e) {
-                                // Si no es un número, ignoramos esta parte
                             }
                         }
                     }
                 }
             }
 
-            // Para la última beca en el archivo (si no termina con una línea en blanco)
+
             if (agregarBeca) {
                 System.out.println(becaActual.toString().trim());
             }
@@ -270,14 +265,14 @@ public class index{
     
     public static void imprimirDesdeArchivo(String archivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            System.out.println(linea);
         }
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
     
     public static void clearScreen() {
         try {
