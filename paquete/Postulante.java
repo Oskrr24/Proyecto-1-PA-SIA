@@ -134,6 +134,7 @@ public class Postulante {
     }
 
     public void agregarBeca(Becas beca){
+        //VERIFICAR SI LA BECA YA ESTÁ
         becas.add(beca);
     }
 

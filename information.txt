@@ -1,48 +1,36 @@
-1) Beca Bicentenario (BB) (*)
-
+****Beca Bicentenario (BB)****
 Para quiénes:
 	Estudiantes nuevas/os: egresadas/os de Enseñanza Media con rendimiento académico meritorio.
 	Estudiantes antiguas/os: que cursan una carrera en la Educación Superior. Quienes tienen un crédito también pueden inscribirse.
-
-Requisito Socioeconómico
-	Pertenecer al 70% de la población de menores ingresos del país. 
-
-Requisito académico:
-	Estudiantes nuevas/os: Puntaje igual o superior a 510 puntos (escala 100-1.000) en el promedio de las pruebas obligatorias (pruebas Competencia 	Lectora/Comprensión Lectora y Competencia Matemática 1 /Matemática) en las PAES del año de admisión a la carrera o el anterior (puntaje PDT regular 	rendida el año 2022 o PDT invierno).
-	Estudiantes antiguas/os: Puntaje igual o superor a 510 putnos en el promedio de las pruebas obligatorias en la PAES.
-
-
-2) Beca Juan Gómez Millas (BJGM) (*)
-
-Para quiénes:
-	Estudiantes nuevas/os: egresadas/os de Enseñanza Media con rendimiento académico meritorio.
-	Estudiantes antiguas/os: que cursan una carrera en la Educación Superior. Quienes tienen un crédito también pueden inscribirse.
-
 Requisito Socioeconómico:
-	Pertenecer al 70% de la población de menores ingresos del país. 
+	Pertenecer al 70% de la población de menores ingresos del país.
+Requisito académico:
+	Estudiantes nuevas/os: Puntaje PAES 510 puntos (escala 100-1.000) en el promedio de las pruebas obligatorias (pruebas Competencia Lectora/Comprensión Lectora y Competencia Matemática 1 /Matemática) en las PAES del año de admisión a la carrera o el anterior (puntaje PDT regular rendida el año 2022 o PDT invierno).
+	Estudiantes antiguas/os: Puntaje PAES 510 putnos en el promedio de las pruebas obligatorias en la PAES.
 
+
+****Beca Juan Gómez Millas (BJGM) (*)****
+Para quiénes:
+	Estudiantes nuevas/os: egresadas/os de Enseñanza Media con rendimiento académico meritorio.
+	Estudiantes antiguas/os: que cursan una carrera en la Educación Superior. Quienes tienen un crédito también pueden inscribirse.
+Requisito Socioeconómico:
+	Pertenecer al 70% de la población de menores ingresos del país.
 Requisito Académico:
-	Estudiantes nuevas/os: Puntaje igual o superior a 510 puntos (escala 100-1.000) en el promedio de las pruebas obligatorias (pruebas Competencia Lectora/Comprensión Lectora y Competencia Matemática 1 /Matemática) en las PAES del año de admisión a la carrera o el anterior (puntaje PAES regular rendida el año 2022 o PDT invierno).
-	Estudiantes antiguas/os: Puntaje igual o superor a 510 putnos en el promedio de las pruebas obligatorias en la PAES.
+	Estudiantes nuevas/os: Puntaje PAES 510 puntos (escala 100-1.000) en el promedio de las pruebas obligatorias (pruebas Competencia Lectora/Comprensión Lectora y Competencia Matemática 1 /Matemática) en las PAES del año de admisión a la carrera o el anterior (puntaje PAES regular rendida el año 2022 o PDT invierno).
+	Estudiantes antiguas/os: Puntaje PAES 510 puntos putnos en el promedio de las pruebas obligatorias en la PAES.
 
-3) Beca Vocación de Profesor
-
+****Beca Vocación de Profesor****
 Para quiénes:
 	 Personas que cuentan con una licenciatura o título profesional que se matriculen en un ciclo o programa de formación pedagógica elegible.
-
 Requisito Socioeconómico:
 	No tiene.
-
 Requisito Académico:
 	Contar con el grado de licenciado/a o un título profesional otorgado por una Institución de Educación Superior.
 
-4) Beca Exelencia Académica:
-
+****Beca Exelencia Académica:****
 Para quiénes:
 	El 10% de los mejores egresadas/os de Enseñanza Media de su establecimiento, del mismo año de inscripción a la beca. Deben provenir de establecimientos municipales, particulares subvencionados y de administración delegada; e ingresar a la Educación Superior al año siguiente de terminar su Enseñanza Media.
-
 Requisito Socioeconómico:
 	Pertenecer al 80% de la población de menores ingresos del país.
-
 Requisito Académico:
 	Promedio de notas enseñanza media mayor o igual a 6.5
