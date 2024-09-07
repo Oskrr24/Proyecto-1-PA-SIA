@@ -14,6 +14,9 @@ public class Becas{
         return nombreBeca;
     }
     
+    //CREAR MÁS ATRIBUTOS PARA CREAR UN OBJETO BECA
+    //CREAR UN CONSTRUCTOR PARA CADA BECA
+   
     //HACER VARIABLE QUE SE LLAME MOSTRARBECA-NOMBRE = TRUE/FALSE
     
     public boolean BECA_JuanGomezMillas(float rangoSE, int PtsPAES){
