@@ -9,12 +9,12 @@ public class Sistema_Gestion_Becas {
     private static Scanner sc = new Scanner(System.in);
     private static SistemaBeca sistema = new SistemaBeca();
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws PostulanteNoEncontradoException {
         menu(sc);
     }
 
     //MENÚ
-    public static void menu(Scanner sc){
+    public static void menu(Scanner sc) throws PostulanteNoEncontradoException{
         int opcion;
         sistema.datosIniciales();
         
@@ -40,12 +40,14 @@ public class Sistema_Gestion_Becas {
          System.out.println("9) Filtrar Postulantes por Beca y rango Socio-Económico"); 
          System.out.println("10) Mostrar Becas y Postulantes "); 
          System.out.println("11) Gestionar solicitudes "); 
-         System.out.println("12) Mostrar detalles de postulante");
-         System.out.println("13) Generar reporte de Becas "); 
+         System.out.println("12) Mostrar detalles de postulante (buscar postulante");
+         System.out.println("13) Modificar postulante");
          
-         System.out.println("14) Salir del programa"); 
+         System.out.println("14) Generar reporte de Becas "); 
+         
+         System.out.println("15) Salir del programa"); 
 
-         opcion = sistema.ingresarNumeroValido(sc, 1, 14);
+         opcion = sistema.ingresarNumeroValido(sc, 1, 15);
          switch (opcion) {
              case 1 -> {
                  
@@ -74,7 +76,11 @@ public class Sistema_Gestion_Becas {
                 System.out.println("Ha elegido la opción 6");
                 System.out.print("Ingrese el rut del postulante a eliminar: ");
                 String rut = sc.nextLine();
-                sistema.eliminarPostulante(rut);
+                try {
+                        sistema.eliminarPostulante("rut");
+                    } catch (PostulanteNoEncontradoException e) {
+                        System.out.println(e.getMessage()); 
+                    }
                 }
              case 7 -> {
                 System.out.println("Ha elegido la opción 7");
@@ -114,7 +120,7 @@ public class Sistema_Gestion_Becas {
                 }
              case 12 -> {
                 System.out.println("Ha elegido la opción 12");
-                System.out.print("Ingrese el N° de postulante a mostrar detalle: ");
+                System.out.print("Ingrese el nombre y apellido de postulante a mostrar detalle: ");
                 sistema.mostrarPostulantes();
                 int indice = sistema.ingresarNumeroValido(sc, 1, sistema.getListaPostulantes().size());
                 
@@ -132,10 +138,15 @@ public class Sistema_Gestion_Becas {
                 
                 }
              case 13 -> {
+                System.out.println("Ha elegido la opción 12");
+                sistema.modificarPostulante();
+             }
+                
+             case 14 -> {
                 System.out.println("Ha elegido la opción 13");
                 sistema.generarReporteBecas("ReporteBecas.csv");
                 }
-             case 14 -> { 
+             case 15 -> { 
                 
                  System.out.println("Ha elegido la opción 15");
                  System.out.println("Saliendo del programa...");
@@ -145,7 +156,7 @@ public class Sistema_Gestion_Becas {
 
          }
          SistemaBeca.presioneTeclaParaContinuar(sc);
-     }while(opcion != 14);
+     }while(opcion != 15);
  }
  
 }

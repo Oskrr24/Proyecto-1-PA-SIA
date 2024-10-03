@@ -224,6 +224,7 @@ public class Postulante {
             mostrarDetalles(); // Llama al método original
         }
     }
+      
     
     
     //METODO toString

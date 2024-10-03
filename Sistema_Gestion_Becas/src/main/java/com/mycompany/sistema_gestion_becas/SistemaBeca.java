@@ -26,43 +26,61 @@ public class SistemaBeca {
     public ArrayList getListaPostulantes(){
         return this.listaGeneralPostulantes;
     }
-    
-   
+     
     //POSTULANTES
     
     public void registrarPostulante() {
-        Postulante nuevoPostulante = Postulante.crearPostulante();
-        
-        if (nuevoPostulante != null) {
+    Postulante nuevoPostulante = Postulante.crearPostulante();
+    
+    if (nuevoPostulante != null) {
+        try {
+            // Llamamos al método que verifica si el postulante ya existe
+            verificarPostulanteDuplicado(nuevoPostulante);
+            // Si no lanza excepción, agregamos el postulante
             listaGeneralPostulantes.add(nuevoPostulante);
             System.out.println("Postulante registrado exitosamente.");
-        } else {
-            System.out.println("No se pudo registrar el postulante. Inténtelo de nuevo.");
+        } catch (PostulanteDuplicadoException e) {
+            System.out.println(e.getMessage());
+        }
+    } else {
+        System.out.println("No se pudo registrar el postulante. Inténtelo de nuevo.");
+    }
+}
+
+    // Método que verifica si el postulante ya está registrado
+    private void verificarPostulanteDuplicado(Postulante nuevoPostulante) throws PostulanteDuplicadoException {
+        for (Postulante postulante : listaGeneralPostulantes) {
+            if (postulante.getRut().equals(nuevoPostulante.getRut())) {
+                throw new PostulanteDuplicadoException("El postulante con RUT " + nuevoPostulante.getRut() + " ya está registrado.");
+            }
         }
     }
     
     public void mostrarPostulantes() {
-        if (listaGeneralPostulantes.isEmpty()) {
-            System.out.println("No hay postulantes registrados.");
-        } else {
-            for (Postulante postulante : listaGeneralPostulantes) {
-                System.out.println(postulante);  
-            }
+    if (listaGeneralPostulantes.isEmpty()) {
+        System.out.println("No hay postulantes registrados.");
+    } else {
+        int contador = 1;
+        for (Postulante postulante : listaGeneralPostulantes) {
+            System.out.println(contador + ". " + postulante);
+            contador++;
         }
     }
+}
     
     //ELIMINAR POSTULANTE POR RUT O NOMBRE --> CREAR SOBRECARGA
-    public boolean eliminarPostulante(String rut) {
-        for (Postulante postulante : listaGeneralPostulantes) {
-            if (postulante.getRut().equals(rut)) {
-                listaGeneralPostulantes.remove(postulante);  
-                System.out.println("Postulante con RUT " + rut + " eliminado.");
-                return true;
-            }
+    public boolean eliminarPostulante(String rut) throws PostulanteNoEncontradoException {
+    for (Postulante postulante : listaGeneralPostulantes) {
+        if (postulante.getRut().equals(rut)) {
+            listaGeneralPostulantes.remove(postulante);
+            System.out.println("Postulante con RUT " + rut + " eliminado.");
+            return true;
         }
-        System.out.println("No se encontró ningún postulante con el RUT " + rut);
-        return false;  // Retorna false si no se encuentra el postulante
     }
+    // Si no se encuentra el postulante, lanzamos la excepción
+    throw new PostulanteNoEncontradoException("No se encontró ningún postulante con el RUT " + rut);
+}
+
      
     public boolean eliminarPostulante(String nombre, String apellido) {
     for (Postulante postulante : listaGeneralPostulantes) {
@@ -76,6 +94,77 @@ public class SistemaBeca {
     return false;  // Retorna false si no se encuentra el postulante
 }
 
+    public void modificarPostulante() {
+    if (listaGeneralPostulantes.isEmpty()) {
+        System.out.println("No hay postulantes registrados.");
+    } else {
+        Scanner scanner = new Scanner(System.in);
+        mostrarPostulantes();  // Mostrar la lista de postulantes enumerados
+
+        // Seleccionar el postulante a modificar
+        System.out.println("Ingrese el número del postulante que desea modificar:");
+        int indice = scanner.nextInt();
+
+        // Validar que el índice esté dentro del rango
+        if (indice > 0 && indice <= listaGeneralPostulantes.size()) {
+            Postulante postulanteSeleccionado = listaGeneralPostulantes.get(indice - 1);  // Obtener el postulante
+
+            // Modificar atributos del postulante
+            System.out.println("Ingrese el nuevo nombre (anterior: " + postulanteSeleccionado.getNombre() + "):");
+            String nuevoNombre = scanner.next();
+            postulanteSeleccionado.setNombre(nuevoNombre);
+
+            System.out.println("Ingrese el nuevo apellido (anterior: " + postulanteSeleccionado.getApellido() + "):");
+            String nuevoApellido = scanner.next();
+            postulanteSeleccionado.setApellido(nuevoApellido);
+
+            System.out.println("Ingrese la nueva edad (anterior: " + postulanteSeleccionado.getEdad() + "):");
+            int nuevaEdad = scanner.nextInt();
+            postulanteSeleccionado.setEdad(nuevaEdad);
+
+            System.out.println("Ingrese el nuevo RUT (anterior: " + postulanteSeleccionado.getRut() + "):");
+            String nuevoRut = scanner.next();
+            postulanteSeleccionado.setRut(nuevoRut);
+
+            System.out.println("Ingrese el nuevo sexo (1 = Masculino, 2 = Femenino, anterior: " + postulanteSeleccionado.getSexo() + "):");
+            int nuevoSexo = scanner.nextInt();
+            postulanteSeleccionado.setSexo(nuevoSexo);
+
+            System.out.println("Ingrese la nueva nota media (anterior: " + postulanteSeleccionado.getNotasMedia() + "):");
+            float nuevaNotaMedia = scanner.nextFloat();
+            postulanteSeleccionado.setNotasMedia(nuevaNotaMedia);
+
+            System.out.println("¿Es de nacionalidad chilena? (true/false, anterior: " + postulanteSeleccionado.getNacionalidadChilena() + "):");
+            boolean nuevaNacionalidadChilena = scanner.nextBoolean();
+            postulanteSeleccionado.setNacionalidadChilena(nuevaNacionalidadChilena);
+
+            System.out.println("Ingrese el nuevo rango socioeconómico (anterior: " + postulanteSeleccionado.getRangoSE() + "):");
+            int nuevoRangoSE = scanner.nextInt();
+            postulanteSeleccionado.setRangoSE(nuevoRangoSE);
+
+            System.out.println("¿Es indígena? (true/false, anterior: " + postulanteSeleccionado.getEsIndigena() + "):");
+            boolean nuevoEsIndigena = scanner.nextBoolean();
+            postulanteSeleccionado.setEsIndigena(nuevoEsIndigena);
+
+            System.out.println("Ingrese el nuevo puntaje PAES (anterior: " + postulanteSeleccionado.getPuntajePaes() + "):");
+            int nuevoPuntajePaes = scanner.nextInt();
+            postulanteSeleccionado.setPuntajePaes(nuevoPuntajePaes);
+
+            System.out.println("Ingrese la nueva carrera en curso (anterior: " + postulanteSeleccionado.getCarreraEnCurso() + "):");
+            String nuevaCarrera = scanner.next();
+            postulanteSeleccionado.setCarreraEnCurso(nuevaCarrera);
+
+            System.out.println("¿Está titulado? (true/false, anterior: " + postulanteSeleccionado.getTitulado() + "):");
+            boolean nuevoTitulado = scanner.nextBoolean();
+            postulanteSeleccionado.setTitulado(nuevoTitulado);
+
+            System.out.println("Postulante modificado exitosamente.");
+        } else {
+            System.out.println("Índice no válido.");
+        }
+    }
+}
+    
     //BECAS
         
     public void leerBecasDesdeCSV() {
@@ -245,7 +334,6 @@ public class SistemaBeca {
     }
 }
 
-    
     // Método para mostrar todas las becas y sus postulantes (inicialmente vacío)    
     public void mostrarBecas() {
     for (Map.Entry<Integer, Beca> entry : mapaBecas.entrySet()) {
@@ -450,7 +538,6 @@ public class SistemaBeca {
 
     procesarSolicitud(solicitudSeleccionada, becaSeleccionada, indiceSolicitud, solicitudes);
 }
-
 
     public void procesarSolicitud(Solicitud solicitudSeleccionada, Beca becaSeleccionada, int indiceSolicitud, ArrayList<Solicitud> solicitudes) {
     Scanner scanner = new Scanner(System.in);
