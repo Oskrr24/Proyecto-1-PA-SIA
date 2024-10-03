@@ -1,0 +1,11 @@
+id,nombre,descripcion,requisitos,monto,duracion,paes
+1,"Beca Excelencia Académica","Otorgada al 10% de los mejores egresados de enseñanza media.","Promedio de notas >= 6.0 y pertenecer al 80% de menores ingresos, Puntaje PAES >= 600",1150000,10,600
+2,"Beca BAES","Una ayuda para gastos de alimentación, dirigida a las y los estudiantes de menores ingresos que obtuvieron una beca de arancel.","Pertenecer al 60% de la población de menores ingresos, ser beneficiario de alguna beca estatal o la gratuidad para financiar el arancel de la carrera.",45000,10,0
+3,"Beca de Articulación","Estudiantes egresados o titulados de carreras técnicas de nivel superior que quieran continuar sus estudios para obtener un título profesional en un área del conocimiento afín a su carrera de origen.","Pertenecer al 70% de la población de menores recursos, promedio de notas de enseñanza media >= 5.0 y estar titulado en una carrera técnica.",750000,10,0
+4,"Beca Bicentenario","Para estudiantes nuevos y antiguos con buen rendimiento y situación socioeconómica vulnerable.","Pertenecer al 70% de la población con menores ingresos, nacionalidad chilena.",0,10,510
+5,"Beca Juan Gómez Millas","Para estudiantes nuevos y antiguos con rendimiento académico y situación socioeconómica vulnerable.","Puntaje PAES >= 510, pertenecer al 70% de menores ingresos.",0,10,510
+6,"Beca Vocación de Profesor","Para estudiantes que inician estudios en pedagogía.","Tener un puntaje PAES promedio >= 600 y estar matriculado en una carrera de pedagogía.",0,10,600
+7,"Beca Nuevo Milenio","Dirigida a estudiantes de carreras técnico-profesionales.","Promedio de notas >= 5.0, pertenecer al 70% de menores ingresos.",0,10,0
+8,"Beca Indígena","Apoyo para estudiantes de ascendencia indígena.","Pertenecer a una ascendencia indígena y estar en el 60% de la población con menores ingresos.",654600,10,0
+9,"Beca Presidente de la República","Para estudiantes de enseñanza media y superior con buen rendimiento académico.","Pertenecer al 60% de menores ingresos y tener promedio de notas >= 6.0.",796344,12,0
+10,"Beca Distinción a las Trayectorias Educativas","Otorgada a estudiantes con una distinción en las Trayectorias Educativas de la PAES","Obtener alguna Distinción a las Trayectorias Educativas en la PAES, estar dentro del 80% de la población con menos ingresos.",Cubre el arancel anual completo,10,950
