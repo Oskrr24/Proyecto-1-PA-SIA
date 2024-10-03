@@ -148,9 +148,7 @@ public class Postulante {
 
             System.out.println("Ingrese el RUT:");
             String rut = sc.nextLine();
-            /*if (!validarRut(rut)) {
-                throw new IllegalArgumentException("El formato del RUT es inválido.");
-            }*/
+            
 
             System.out.println("Ingrese el sexo (1 para Masculino, 2 para Femenino):");
             int sexo = sc.nextInt();
@@ -204,9 +202,29 @@ public class Postulante {
         return null; 
     }
 
-    private static boolean validarRut(String rut) {
-        return rut.matches("\\d{7,8}-[\\dkK]");
+    public void mostrarDetalles() {
+       System.out.println("Nombre: " + nombre + " " + apellido + ", RUT: " + rut);
     }
+    
+    public void mostrarDetalles(String formato) {
+        if (formato.equals("completo")) {
+    System.out.println("Nombre: " + nombre + " " + apellido);
+    System.out.println("RUT: " + rut);
+    System.out.println("Edad: " + edad);
+    System.out.println("Sexo: " + (sexo == 1 ? "Masculino" : "Femenino"));
+    System.out.println("Notas promedio: " + notasMedia);
+    System.out.println("Nacionalidad chilena: " + (nacionalidadChilena ? "Sí" : "No"));
+    System.out.println("Rango socioeconómico: " + rangoSE);
+    System.out.println("Es indígena: " + (esIndigena ? "Sí" : "No"));
+    System.out.println("Puntaje PAES: " + puntajePaes);
+    System.out.println("Carrera en curso: " + carreraEnCurso);
+    System.out.println("Titulado: " + (titulado ? "Sí" : "No"));
+}
+ else {
+            mostrarDetalles(); // Llama al método original
+        }
+    }
+    
     
     //METODO toString
     @Override

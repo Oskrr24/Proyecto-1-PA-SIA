@@ -34,19 +34,18 @@ public class Sistema_Gestion_Becas {
 
          System.out.println("VERSION DEL ADMINISTRADOR");
          System.out.println("4) Mostrar postulantes "); 
-         System.out.println("5) Modificar postulate");
          System.out.println("6) Eliminar postulante (por rut)"); 
          System.out.println("7) Eliminar postulante (por nombre y apellido)"); 
          System.out.println("8) Eliminar Beca "); 
          System.out.println("9) Filtrar Postulantes por Beca y rango Socio-Económico"); 
-         
          System.out.println("10) Mostrar Becas y Postulantes "); 
          System.out.println("11) Gestionar solicitudes "); 
-         System.out.println("12) Generar reporte de Becas "); 
+         System.out.println("12) Mostrar detalles de postulante");
+         System.out.println("13) Generar reporte de Becas "); 
          
-         System.out.println("13) Salir del programa"); 
+         System.out.println("14) Salir del programa"); 
 
-         opcion = sistema.ingresarNumeroValido(sc, 1, 10);
+         opcion = sistema.ingresarNumeroValido(sc, 1, 14);
          switch (opcion) {
              case 1 -> {
                  
@@ -70,12 +69,7 @@ public class Sistema_Gestion_Becas {
                 System.out.println("Ha elegido la opción 4");
                 sistema.mostrarPostulantes();
                 }
-             
-             case 5 -> {
-                System.out.println("Ha elegido la opción 5");
-                //MODIFICAR CON MODIFICAR POSTULANTE
-                sistema.mostrarPostulantes();
-                }
+            
              case 6 -> {
                 System.out.println("Ha elegido la opción 6");
                 System.out.print("Ingrese el rut del postulante a eliminar: ");
@@ -120,18 +114,38 @@ public class Sistema_Gestion_Becas {
                 }
              case 12 -> {
                 System.out.println("Ha elegido la opción 12");
+                System.out.print("Ingrese el N° de postulante a mostrar detalle: ");
+                sistema.mostrarPostulantes();
+                int indice = sistema.ingresarNumeroValido(sc, 1, sistema.getListaPostulantes().size());
+                
+                System.out.println("Escoja opcion:");
+                System.out.println("1) Ver Nombre, Apellido y Rut");
+                System.out.println("2) Ver detalle completo");
+                int opcion2 = sc.nextInt();
+                Postulante seleccionado = (Postulante) sistema.getListaPostulantes().get(indice);
+                
+                if(opcion2 == 1){
+                    seleccionado.mostrarDetalles();
+                }else{
+                    seleccionado.mostrarDetalles("completo");
+                }
+                
+                }
+             case 13 -> {
+                System.out.println("Ha elegido la opción 13");
                 sistema.generarReporteBecas("ReporteBecas.csv");
                 }
-             case 13 -> { 
+             case 14 -> { 
                 
-                 System.out.println("Ha elegido la opción 13");
+                 System.out.println("Ha elegido la opción 15");
                  System.out.println("Saliendo del programa...");
+                 sc.close();
                  System.exit(0);
              }
 
          }
          SistemaBeca.presioneTeclaParaContinuar(sc);
-     }while(opcion != 10);
+     }while(opcion != 14);
  }
  
 }

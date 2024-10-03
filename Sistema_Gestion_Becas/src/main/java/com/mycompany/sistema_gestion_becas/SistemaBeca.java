@@ -22,6 +22,11 @@ public class SistemaBeca {
         this.mapaBecas = new HashMap<>();
         this.listaGeneralPostulantes = new ArrayList<>();
     }
+    
+    public ArrayList getListaPostulantes(){
+        return this.listaGeneralPostulantes;
+    }
+    
    
     //POSTULANTES
     
