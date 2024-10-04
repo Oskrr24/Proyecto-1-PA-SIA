@@ -225,8 +225,6 @@ public class Postulante {
         }
     }
       
-    
-    
     //METODO toString
     @Override
     public String toString() {

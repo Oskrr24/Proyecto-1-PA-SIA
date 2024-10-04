@@ -80,7 +80,6 @@ public class SistemaBeca {
     // Si no se encuentra el postulante, lanzamos la excepción
     throw new PostulanteNoEncontradoException("No se encontró ningún postulante con el RUT " + rut);
 }
-
      
     public boolean eliminarPostulante(String nombre, String apellido) {
     for (Postulante postulante : listaGeneralPostulantes) {
