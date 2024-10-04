@@ -165,7 +165,6 @@ public class SistemaBeca {
 }
     
     //BECAS
-        
     public void leerBecasDesdeCSV() {
     String archivoCSV = "/BecasDisponibles.csv"; // Ruta relativa
 
@@ -222,7 +221,6 @@ public class SistemaBeca {
                         BecaNuevoMilenio beca7 = new BecaNuevoMilenio(id, nombre, descripcion, requisitos, monto, duracion, puntajePaesMinimo);
                         mapaBecas.put(id, beca7);
                     }
-                    
                     case 8 -> {
                         BecaIndigena beca = new BecaIndigena(id, nombre, descripcion, requisitos, monto, duracion, puntajePaesMinimo);
                         mapaBecas.put(id, beca);
@@ -249,50 +247,44 @@ public class SistemaBeca {
     }
 }
     
-    public void datosIniciales(){
-        // 1. Postulante para BecaExcelenciaAcademica
-        Postulante postulante1 = new Postulante("Juan", "Perez", 18, "12345678-9", 1, 6.2f, true, 70, false, 650, "Ingeniería", false);
+   public void datosIniciales() {
+    String filePath = "/entradaDatos.csv";  // Ruta relativa en recursos
+    String line = "";
+    String csvSplitBy = ",";
 
-        // 2. Postulante para BecaBAES
-        Postulante postulante2 = new Postulante("Maria", "Rodriguez", 20, "98765432-1", 2, 5.5f, true, 60, false, 580, "Enfermería", false);
+    try (BufferedReader br = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(filePath)))) {
+        while ((line = br.readLine()) != null) {
+            // Dividimos la línea usando split
+            String[] datos = line.split(csvSplitBy);
 
-        // 3. Postulante para BecaArticulacion
-        Postulante postulante3 = new Postulante("Pedro", "Gomez", 25, "19283746-5", 1, 5.3f, true, 65, false, 600, "Técnico en Telecomunicaciones", true);
+            // Asignamos los valores leídos a los atributos del postulante
+            String nombre = datos[0];
+            String apellido = datos[1];
+            int edad = Integer.parseInt(datos[2]);
+            String rut = datos[3];
+            int sexo = Integer.parseInt(datos[4]);
+            float notasMedia = Float.parseFloat(datos[5]);
+            boolean nacionalidadChilena = Boolean.parseBoolean(datos[6]);
+            int rangoSE = Integer.parseInt(datos[7]);
+            boolean esIndigena = Boolean.parseBoolean(datos[8]);
+            int puntajePaes = Integer.parseInt(datos[9]);
+            String carreraEnCurso = datos[10];
+            boolean titulado = Boolean.parseBoolean(datos[11]);
 
-        // 4. Postulante para BecaBicentenario
-        Postulante postulante4 = new Postulante("Ana", "Lopez", 19, "13579246-8", 2, 5.8f, true, 68, false, 590, "Arquitectura", false);
-
-        // 5. Postulante para BecaJuanGomezMillas
-        Postulante postulante5 = new Postulante("Carlos", "Soto", 21, "98712345-6", 1, 5.7f, true, 65, false, 520, "Derecho", false);
-
-        // 6. Postulante para BecaVocacionProfesor
-        Postulante postulante6 = new Postulante("Valentina", "Mendoza", 22, "11223344-5", 2, 6.0f, true, 75, false, 620, "Pedagogía en Matemáticas", false);
-
-        // 7. Postulante para BecaNuevoMilenio
-        Postulante postulante7 = new Postulante("Felipe", "Castro", 20, "14151617-9", 1, 5.1f, true, 60, false, 550, "Técnico en Electrónica", false);
-
-        // 8. Postulante para BecaIndigena
-        Postulante postulante8 = new Postulante("Lucia", "Cardenas", 23, "18273645-2", 2, 4.9f, true, 50, true, 530, "Trabajo Social", false);
-
-        // 9. Postulante para BecaPresidenteRepublica
-        Postulante postulante9 = new Postulante("Sebastian", "Riquelme", 19, "12332123-4", 1, 6.1f, true, 55, false, 600, "Ingeniería Comercial", false);
-
-        // 10. Postulante para BecaDistincionTrayectoriasEducativas
-        Postulante postulante10 = new Postulante("Camila", "Figueroa", 18, "67891234-0", 2, 5.9f, true, 75, true, 610, "Educación Parvularia", false);
-
-        listaGeneralPostulantes.add(postulante1);
-        listaGeneralPostulantes.add(postulante2);
-        listaGeneralPostulantes.add(postulante3);
-        listaGeneralPostulantes.add(postulante4);
-        listaGeneralPostulantes.add(postulante5);
-        listaGeneralPostulantes.add(postulante6);
-        listaGeneralPostulantes.add(postulante7);
-        listaGeneralPostulantes.add(postulante8);
-        listaGeneralPostulantes.add(postulante9);
-        listaGeneralPostulantes.add(postulante10);
-        
+            // Creamos un nuevo postulante
+            Postulante nuevoPostulante = new Postulante(nombre, apellido, edad, rut, sexo, notasMedia, nacionalidadChilena, rangoSE, esIndigena, puntajePaes, carreraEnCurso, titulado);
+            
+            // Agregamos el postulante a la lista
+            listaGeneralPostulantes.add(nuevoPostulante);
+        }
+        System.out.println("Datos iniciales cargados exitosamente desde el archivo CSV.");
+    } catch (IOException e) {
+        System.out.println("Error al leer el archivo CSV: " + e.getMessage());
+    } catch (NumberFormatException e) {
+        System.out.println("Error en el formato del archivo CSV: " + e.getMessage());
     }
-    
+}
+
     public void filtrarPostulantesBecaYRSE(int idBeca, int rangoMin, int rangoMax) {
     Beca becaSeleccionada = mapaBecas.get(idBeca);
     

@@ -17,7 +17,6 @@ public class Sistema_Gestion_Becas {
     public static void menu(Scanner sc) throws PostulanteNoEncontradoException{
         int opcion;
         sistema.datosIniciales();
-        
         sistema.leerBecasDesdeCSV();
      do{
          

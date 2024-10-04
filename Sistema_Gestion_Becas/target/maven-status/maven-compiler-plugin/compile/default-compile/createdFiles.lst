@@ -1,8 +1,10 @@
 com\mycompany\sistema_gestion_becas\Beca$BecaDistincionTrayectoriasEducativas.class
 com\mycompany\sistema_gestion_becas\Beca$BecaExcelenciaAcademica.class
+com\mycompany\sistema_gestion_becas\PostulanteDuplicadoException.class
 com\mycompany\sistema_gestion_becas\Sistema_Gestion_Becas.class
 com\mycompany\sistema_gestion_becas\Beca$BecaIndigena.class
 com\mycompany\sistema_gestion_becas\Solicitud.class
+com\mycompany\sistema_gestion_becas\PostulanteNoEncontradoException.class
 com\mycompany\sistema_gestion_becas\Beca$BecaArticulacion.class
 com\mycompany\sistema_gestion_becas\Beca$BecaPresidenteRepublica.class
 com\mycompany\sistema_gestion_becas\Beca$BecaVocacionProfesor.class
